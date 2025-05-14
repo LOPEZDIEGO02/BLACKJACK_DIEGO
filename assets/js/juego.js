@@ -38,26 +38,23 @@ btnPedir.addEventListener('click', () => {
     // document.querySelector("#cartas-jugador").append(milimagen)
 
     // obtener valor de la carta
-    const carta = "KD"
+    const carta = "JD"
     console.log(carta)
     
     const cartaCortada = carta.slice(0,carta.length-1)
     console.log(cartaCortada)
 
 
-    if(condicion) { codigo}
-
-    if(isNaN) (cartaCortada);{
-        console.log("es un numero", carta)
-        return valor;
+    if( !isNaN(cartaCortada) ) {
+        console.log("es un numero", cartaCortada)
 
     }  {
         if (cartaCortada === "J" || cartaCortada === "Q" || cartaCortada === "K") {
             console.log("Es una carta especial", cartaCortada);
-            return 10;
+            console.log(10)
         } else if (cartaCortada === "A") {
             console.log("Es un As", cartaCortada);
-            return 11;
+            console.log(11)
         }
     }
         
