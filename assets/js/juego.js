@@ -54,22 +54,26 @@ btnPedir.addEventListener('click', () => {
 
     
     
-
-    console.log(obtenerValorCarta('KD'))
-      
-
-    // console.log("tu total de puntos es:", puntosJugador)
-
-    // if (puntosJugador > 21 ) {
-    //     console.error("perdiste")
-    // } else {
-    //     if (puntosJugador === 21 ) {
-    //         console.warn("21 yei")
-    //     } else {
-    //         console.log("ahorita vemos pae")
-    //     }
-    // }
+    puntosJugador = obtenerValorCarta(carta) + puntosJugador;
     
+
+    console.log("tu total de puntos es:", puntosJugador)
+
+
+    
+    if (puntosJugador > 21 ) {
+        console.error("perdiste")
+    } else if (puntosJugador === 21 ){
+        console.warn("21 yei")
+    } else {
+        console.log("ahorita vemos pae")
+    }
+
+
+
+
+    
+
 
 
 
