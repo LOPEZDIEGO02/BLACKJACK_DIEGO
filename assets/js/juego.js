@@ -23,6 +23,7 @@ function crearDeck() {
 
 crearDeck ();
 deck = _.shuffle(deck)
+console.log(deck)
 
 
 
@@ -30,16 +31,13 @@ deck = _.shuffle(deck)
 btnPedir.addEventListener('click', () => {
     
     // creo mi imagen
-    // const milimagen = document.createElement("img");
-    // // const carta = deck.pop();
-    // milimagen.src=`assets/cartas/${carta}.png`
-    // milimagen.className="carta"
-    // // inserto mi imagen
-    // document.querySelector("#cartas-jugador").append(milimagen)
+    const milimagen = document.createElement("img");
+    const carta = deck.pop();
+    milimagen.src=`assets/cartas/${carta}.png`
+    milimagen.className="carta"
+    // inserto mi imagen
+    document.querySelector("#cartas-jugador").append(milimagen)
 
-    // obtener valor de la carta
-    const carta = "JD"
-    console.log(carta)
     
     const cartaCortada = carta.slice(0,carta.length-1)
     console.log(cartaCortada)
@@ -49,12 +47,12 @@ btnPedir.addEventListener('click', () => {
         console.log("es un numero", cartaCortada)
 
     }  {
-        if (cartaCortada === "J" || cartaCortada === "Q" || cartaCortada === "K") {
-            console.log("Es una carta especial", cartaCortada);
-            console.log(10)
-        } else if (cartaCortada === "A") {
+        if ( cartaCortada == "A") {
             console.log("Es un As", cartaCortada);
             console.log(11)
+        } else {
+            console.log("Es una carta especial", cartaCortada);
+            console.log(10)
         }
     }
         
