@@ -40,9 +40,12 @@ btnPedir.addEventListener('click', () => {
     // obtener valor de la carta
     const carta = "KD"
     console.log(carta)
+    
     const cartaCortada = carta.slice(0,carta.length-1)
     console.log(cartaCortada)
 
+
+    if(condicion) { codigo}
 
     if(isNaN) (cartaCortada);{
         console.log("es un numero", carta)
