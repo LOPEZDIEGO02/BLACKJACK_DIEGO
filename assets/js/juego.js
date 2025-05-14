@@ -29,7 +29,7 @@ deck = _.shuffle(deck)
 
 btnPedir.addEventListener('click', () => {
     
-    // creo mio imagen
+    // creo mi imagen
     // const milimagen = document.createElement("img");
     // // const carta = deck.pop();
     // milimagen.src=`assets/cartas/${carta}.png`
@@ -38,10 +38,31 @@ btnPedir.addEventListener('click', () => {
     // document.querySelector("#cartas-jugador").append(milimagen)
 
     // obtener valor de la carta
-    const carta = "40D"
+    const carta = "KD"
     console.log(carta)
-    const nuevaCarta = carta.slice(0,carta.length-1)
-    console.log(nuevaCarta)
+    const cartaCortada = carta.slice(0,carta.length-1)
+    console.log(cartaCortada)
+
+
+    if(isNaN) (cartaCortada);{
+        console.log("es un numero", carta)
+        return valor;
+
+    }  {
+        if (cartaCortada === "J" || cartaCortada === "Q" || cartaCortada === "K") {
+            console.log("Es una carta especial", cartaCortada);
+            return 10;
+        } else if (cartaCortada === "A") {
+            console.log("Es un As", cartaCortada);
+            return 11;
+        }
+    }
+        
+    
+
+
+
+
 });
 
 
