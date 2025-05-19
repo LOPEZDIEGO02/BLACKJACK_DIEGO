@@ -6,6 +6,7 @@ let cartas = ['C','D','H','S'];
 let especiales = ['A', 'J', 'Q', 'K'];
 let deck = [];
 let puntosJugador = 0;
+let puntosComputadora = 0;
 
 function crearDeck() {
     for(const carta of cartas) {
@@ -42,6 +43,26 @@ function obtenerValorCarta( carta ) {
         
 }
 
+function turnoComputadora() {
+    // creo mi imagen
+    const milimagen = document.createElement("img");
+    const carta = deck.pop();
+    milimagen.src=`assets/cartas/${carta}.png`
+    milimagen.className="carta"
+    // inserto mi imagen
+    document.querySelector("#cartas-computadora").append(milimagen)
+
+    
+    
+    puntosComputadora = obtenerValorCarta(carta) + puntosComputadora;
+    document.querySelector(`#turno-compu small`).innerText = puntosComputadora;
+    
+
+    console.log("tu total de puntos es:", puntosComputadora)
+
+
+}
+
 btnPedir.addEventListener('click', () => {
     
     // creo mi imagen
@@ -70,35 +91,24 @@ btnPedir.addEventListener('click', () => {
         console.warn("21 yei")
         btnPedir.disableb = true;
         btnDetener.disableb = true;
+        turnoComputadora();
     } else {
         console.log("ahorita vemos pae")
+        turnoComputadora();
     }
     
     // tarea actualizar los puntos del html, desabilitar boton si pierde y añadir el boton detener 
     document.querySelector(`h1 small`).innerText = puntosJugador;
-
-
     
+});
+
+
+
 
 //agregar boton detener, lo que tiene que hacer es desabilitar botones 
-    btnDetener.addEventListener('click', () => {
+btnDetener.addEventListener('click', () => {
+    turnoComputadora()
     btnPedir.disabled = true;
     btnDetener.disabled = true;
 
 });
-
-
-
-
-//crear el turno de la computadora, obtener una carta, sacar el valor de la carta, y cargar en deck que es el la parte de la computadora 
-    const 
-
-
-
-// examen practica el if, mirar un video, DOM js
-
-
-});
-
-
-
