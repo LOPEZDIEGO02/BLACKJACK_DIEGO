@@ -66,14 +66,10 @@ function turnoComputadora() {
 }
 
 btnPedir.addEventListener('click', () => {
-    
-    // creo mi imagen
-    const milimagen = document.createElement("img");
     const carta = deck.pop();
-    milimagen.src=`assets/cartas/${carta}.png`
-    milimagen.className="carta"
-    // inserto mi imagen
-    document.querySelector("#cartas-jugador").append(milimagen)
+    
+    
+    insertarCartaDeck( carta, '#cartas-jugador')
 
     
     
