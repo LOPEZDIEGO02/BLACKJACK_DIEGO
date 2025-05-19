@@ -1,4 +1,4 @@
-// const btnNuevo = document.querySelector("#btnNuevo")
+const btnNuevo = document.querySelector("#btnNuevo")
 const btnPedir =document.querySelector("#btnPedir")
 const btnDetener = document.querySelector("#btnDetener")
 
@@ -61,21 +61,41 @@ btnPedir.addEventListener('click', () => {
 
 
     
+    //actulizar los puntos del jugador en el html, si el jugador pierde se tiene que desavilitar botones lo mismo si gana 
     if (puntosJugador > 21 ) {
         console.error("perdiste")
+        btnPedir.disabled = true;
+        btnDetener.disabled = true;
     } else if (puntosJugador === 21 ){
         console.warn("21 yei")
+        btnPedir.disableb = true;
+        btnDetener.disableb = true;
     } else {
         console.log("ahorita vemos pae")
     }
-
-
+    
+    // tarea actualizar los puntos del html, desabilitar boton si pierde y añadir el boton detener 
+    document.querySelector(`h1 small`).innerText = puntosJugador;
 
 
     
 
+//agregar boton detener, lo que tiene que hacer es desabilitar botones 
+    btnDetener.addEventListener('click', () => {
+    btnPedir.disabled = true;
+    btnDetener.disabled = true;
+
+});
 
 
+
+
+//crear el turno de la computadora, obtener una carta, sacar el valor de la carta, y cargar en deck que es el la parte de la computadora 
+    const 
+
+
+
+// examen practica el if, mirar un video, DOM js
 
 
 });
