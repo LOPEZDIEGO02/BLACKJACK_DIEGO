@@ -63,40 +63,47 @@ function turnoComputadora() {
     document.querySelector(`#turno-compu small`).innerText = puntosComputadora;    
     console.log("tu total de puntos es:", puntosComputadora)
 
+    if(puntosJugador > puntosComputadora) {
+       const carta = deck.pop();
+        insertarCartaDeck( carta,  '#cartas-computadora');
+        
+        puntosComputadora = obtenerValorCarta(carta) + puntosComputadora;
+        document.querySelector(`#turno-compu small`).innerText = puntosComputadora;    
+        console.log("tu total de puntos es:", puntosComputadora) 
+    }
+
+    if(puntosJugador > puntosComputadora) {
+       const carta = deck.pop();
+        insertarCartaDeck( carta,  '#cartas-computadora');
+        
+        puntosComputadora = obtenerValorCarta(carta) + puntosComputadora;
+        document.querySelector(`#turno-compu small`).innerText = puntosComputadora;    
+        console.log("tu total de puntos es:", puntosComputadora) 
+    }
 }
+
+
 
 btnPedir.addEventListener('click', () => {
     const carta = deck.pop();
-    
-    
     insertarCartaDeck( carta, '#cartas-jugador')
 
-    
-    
     puntosJugador = obtenerValorCarta(carta) + puntosJugador;
-    
-
-    console.log("tu total de puntos es:", puntosJugador)
-
-
-    
-    //actulizar los puntos del jugador en el html, si el jugador pierde se tiene que desavilitar botones lo mismo si gana 
-    if (puntosJugador > 21 ) {
-        console.error("perdiste")
-        btnPedir.disabled = true;
-        btnDetener.disabled = true;
-    } else if (puntosJugador === 21 ){
-        console.warn("21 yei")
-        btnPedir.disableb = true;
-        btnDetener.disableb = true;
-        turnoComputadora();
-    } else {
-        console.log("ahorita vemos pae")
-        turnoComputadora();
-    }
-    
-    // tarea actualizar los puntos del html, desabilitar boton si pierde y añadir el boton detener 
     document.querySelector(`h1 small`).innerText = puntosJugador;
+    
+    console.log("tu total de puntos es:", puntosJugador)
+    
+
+        if (puntosJugador > 21 ) {
+            alert("perdiste")
+            btnPedir.disabled = true;
+            btnDetener.disabled = true;
+        } else if (puntosJugador === 21 ){
+            alert("21 yei")
+            btnPedir.disableb = true;
+            btnDetener.disableb = true;
+            turnoComputadora();
+        }
     
 });
 
