@@ -56,30 +56,17 @@ function insertarCartaDeck( carta, deck ) {
 
 
 function turnoComputadora() {
-    const carta = deck.pop();
-    insertarCartaDeck( carta,  '#cartas-computadora');
-    
-    puntosComputadora = obtenerValorCarta(carta) + puntosComputadora;
-    document.querySelector(`#turno-compu small`).innerText = puntosComputadora;    
-    console.log("tu total de puntos es:", puntosComputadora)
-
-    if(puntosJugador > puntosComputadora) {
-       const carta = deck.pop();
+    do {
+        const carta = deck.pop();
         insertarCartaDeck( carta,  '#cartas-computadora');
         
         puntosComputadora = obtenerValorCarta(carta) + puntosComputadora;
         document.querySelector(`#turno-compu small`).innerText = puntosComputadora;    
-        console.log("tu total de puntos es:", puntosComputadora) 
-    }
+        console.log("tu total de puntos es:", puntosComputadora)
+    } while (puntosJugador > puntosComputadora && puntosJugador <= 21);
 
-    if(puntosJugador > puntosComputadora) {
-       const carta = deck.pop();
-        insertarCartaDeck( carta,  '#cartas-computadora');
-        
-        puntosComputadora = obtenerValorCarta(carta) + puntosComputadora;
-        document.querySelector(`#turno-compu small`).innerText = puntosComputadora;    
-        console.log("tu total de puntos es:", puntosComputadora) 
-    }
+
+
 }
 
 
@@ -98,6 +85,7 @@ btnPedir.addEventListener('click', () => {
             alert("perdiste")
             btnPedir.disabled = true;
             btnDetener.disabled = true;
+            turnoComputadora()
         } else if (puntosJugador === 21 ){
             alert("21 yei")
             btnPedir.disableb = true;
