@@ -43,23 +43,25 @@ function obtenerValorCarta( carta ) {
         
 }
 
-function turnoComputadora() {
+function insertarCartaDeck( carta, deck ) {
     // creo mi imagen
     const milimagen = document.createElement("img");
-    const carta = deck.pop();
+
     milimagen.src=`assets/cartas/${carta}.png`
     milimagen.className="carta"
-    // inserto mi imagen
-    document.querySelector("#cartas-computadora").append(milimagen)
-
     
+    // inserto mi imagen
+    document.querySelector( deck ).append(milimagen)
+}
+
+
+function turnoComputadora() {
+    const carta = deck.pop();
+    insertarCartaDeck( carta,  '#cartas-computadora');
     
     puntosComputadora = obtenerValorCarta(carta) + puntosComputadora;
-    document.querySelector(`#turno-compu small`).innerText = puntosComputadora;
-    
-
+    document.querySelector(`#turno-compu small`).innerText = puntosComputadora;    
     console.log("tu total de puntos es:", puntosComputadora)
-
 
 }
 
