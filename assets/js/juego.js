@@ -85,14 +85,11 @@ btnPedir.addEventListener('click', () => {
         console.error("perdiste")
         btnPedir.disabled = true;
         btnDetener.disabled = true;
+        turnoComputadora();
     } else if (puntosJugador === 21 ){
         console.warn("21 yei")
         btnPedir.disableb = true;
         btnDetener.disableb = true;
-        turnoComputadora();
-    } else {
-        console.log("ahorita vemos pae")
-        turnoComputadora();
     }
     
     // tarea actualizar los puntos del html, desabilitar boton si pierde y añadir el boton detener 
@@ -110,3 +107,6 @@ btnDetener.addEventListener('click', () => {
     btnDetener.disabled = true;
 
 });
+
+
+// tarea caundo sele click al boton nuevo que se vacie 
