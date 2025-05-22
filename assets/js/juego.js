@@ -56,14 +56,18 @@ function insertarCartaDeck( carta, deck ) {
 
 
 function turnoComputadora() {
-    const carta = deck.pop();
-    insertarCartaDeck( carta,  '#cartas-computadora');
-    
-    puntosComputadora = obtenerValorCarta(carta) + puntosComputadora;
-    document.querySelector(`#turno-compu small`).innerText = puntosComputadora;    
-    console.log("tu total de puntos es:", puntosComputadora)
+    do{
+        const carta = deck.pop();
+        insertarCartaDeck( carta,  '#cartas-computadora');    
+        puntosComputadora = obtenerValorCarta(carta) + puntosComputadora;
+        document.querySelector(`#turno-compu small`).innerText = puntosComputadora;    
+        console.log("tu total de puntos es:", puntosComputadora)
 
+    } while(puntosJugador > puntosComputadora && puntosJugador <=21)
+
+        determinarGanador
 }
+
 
 btnPedir.addEventListener('click', () => {
     const carta = deck.pop();
@@ -108,5 +112,11 @@ btnDetener.addEventListener('click', () => {
 
 });
 
-
+https://docs.google.com/forms/d/e/1FAIpQLSfan7QcQHbxyqwWdMk7I-VzA6VYCsXrPD9rf6IsuGRy6DX8SQ/viewform
 // tarea caundo sele click al boton nuevo que se vacie 
+function determinarGanador (){
+    if (puntosJugador==21 || puntosComputadora>21){
+        console.log("ganaste")
+
+    }
+}
