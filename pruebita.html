@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Notificación</title>
+</head>
+<body>
+  <button onclick="mostrarNotificacion()">Haz clic aquí</button>
+
+  <script>
+    function mostrarNotificacion() {
+      // Verificamos si el navegador soporta notificaciones
+      if (!("Notification" in window)) {
+        alert("Tu navegador no soporta notificaciones.");
+        return;
+      }
+
+      // Si ya tenemos permiso
+      if (Notification.permission === "granted") {
+        new Notification("✅ Gracias por darle click");
+      } 
+      // Si aún no tenemos permiso, lo pedimos
+      else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(permission => {
+          if (permission === "granted") {
+            new Notification("✅ Gracias por darle click");
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>

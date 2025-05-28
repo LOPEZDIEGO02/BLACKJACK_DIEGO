@@ -65,7 +65,7 @@ function turnoComputadora() {
 
     } while(puntosJugador > puntosComputadora && puntosJugador <=21)
 
-        determinarGanador
+        determinarGanador()
 }
 
 
@@ -88,12 +88,12 @@ btnPedir.addEventListener('click', () => {
     if (puntosJugador > 21 ) {
         console.error("perdiste")
         btnPedir.disabled = true;
-        btnDetener.disabled = true;
+        btnDetener.disabled= true;
         turnoComputadora();
     } else if (puntosJugador === 21 ){
         console.warn("21 yei")
-        btnPedir.disableb = true;
-        btnDetener.disableb = true;
+        btnPedir.disabled = true;
+        btnDetener.disabled = true;
     }
     
     // tarea actualizar los puntos del html, desabilitar boton si pierde y añadir el boton detener 
@@ -112,11 +112,37 @@ btnDetener.addEventListener('click', () => {
 
 });
 
-https://docs.google.com/forms/d/e/1FAIpQLSfan7QcQHbxyqwWdMk7I-VzA6VYCsXrPD9rf6IsuGRy6DX8SQ/viewform
 // tarea caundo sele click al boton nuevo que se vacie 
 function determinarGanador (){
-    if (puntosJugador==21 || puntosComputadora>21){
+    if (puntosJugador  === puntosComputadora === 21 ){
+        console.log("empate")
+    }else if (puntosJugador>21){
+        console.log("perdiste")        
+    }else if(puntosComputadora >21){
         console.log("ganaste")
+    }else if (puntosComputadora > puntosJugador && puntosComputadora < 21) {
+        console.log("La computadora gano");
+    }else if(puntosComputadora ===21){
+        console.log("computadora gano")
 
     }
+    
+
 }
+
+btnNuevo.addEventListener('click', () => {
+    deck = [];
+    puntosJugador = 0;
+    puntosComputadora = 0;
+    document.querySelector('#cartas-jugador').innerHTML = '';
+    document.querySelector('#cartas-computadora').innerHTML = '';
+    document.querySelector(`h1 small`).innerText = 0;
+    document.querySelector(`#turno-compu small`).innerText = 0;
+    btnPedir.disabled = false;
+    btnDetener.disabled = false;
+
+    crearDeck();
+    console.log(deck)
+    deck = _.shuffle(deck);
+    
+});
